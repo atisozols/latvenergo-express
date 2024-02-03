@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server",
-    "start": "node server"
+    "start": "node server",
+    "lint": "eslint ."
   },
   "author": "Atis Ozols",
   "license": "ISC",
@@ -20,6 +21,8 @@
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
     "nodemon": "^3.0.3"
   }
 }
