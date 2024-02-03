@@ -4,23 +4,27 @@ const PORT = 5000
 // izmantotās pakotnes
 const express = require('express')
 const bodyParser = require('body-parser')
+const bodyParserXml = require('body-parser-xml')
 const cors = require('cors')
+const multer = require('multer')
 
 // izmantotās datnes projekta kontekstā
 const corsOptions = require('./config/corsOptions')
 const logger = require('./middleware/logger')
+const outputFormatter = require('./middleware/outputFormatter')
 const search = require('./routes/api/search')
 
 // konstruktors
 const app = express()
 
-
 // middleware
+bodyParserXml(bodyParser) // konfigurē bodyParser ar Xml atbalstu un papildus options objektu, lai parser neveidotu array struktūru un neglabātu root elementu
+app.use(bodyParser.xml({xmlParseOptions:{ explicitArray: false, explicitRoot: false }}))
 app.use(bodyParser.json())
-app.use(logger)
+app.use(multer().none())
 app.use(cors(corsOptions))
-
-
+app.use(outputFormatter)
+app.use(logger)
 
 // API route
 app.use('/api/search', search)
