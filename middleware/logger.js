@@ -31,7 +31,14 @@ const logger = (req, res, next) => {
       console.log(messageOut);
     }
 
-    return originalSend.call(this, data);
+    return originalSend.call(res, data);
+
+    // if (typeof data === 'object') {
+    //   res.setHeader('Content-Type', 'application/json');
+    //   return originalSend.call(this, JSON.stringify(data));
+    // } else {
+    //     return originalSend.call(this, data);
+    // }
   };
 
   next();
