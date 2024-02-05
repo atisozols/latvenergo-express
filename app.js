@@ -27,6 +27,13 @@ app.use(cors(corsOptions));
 app.use(outputFormatter);
 app.use(logger);
 
+// static
+const path = `${__dirname}/views/`;
+app.use(express.static(path));
+app.get('/', (req, res) => {
+  res.sendFile(`${path}index.html`);
+});
+
 // API route
 app.use('/api/search', search);
 

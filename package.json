@@ -7,7 +7,7 @@
     "test": "jest --forceExit",
     "dev": "nodemon server",
     "start": "node server",
-    "lint": "eslint ."
+    "lint": "eslint . --fix"
   },
   "author": "Atis Ozols",
   "license": "ISC",

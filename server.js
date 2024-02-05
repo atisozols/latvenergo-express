@@ -1,4 +1,4 @@
-const app = require('./app.js')
+const app = require('./app');
 
 // PORT konfigurācija
 const PORT = 5001;

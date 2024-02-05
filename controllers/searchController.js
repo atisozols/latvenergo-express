@@ -1,4 +1,5 @@
 const schemas = require('../config/schemas');
+const transformData = require('../utils/transformData');
 
 const searchItems = async (req, res) => {
   try {
@@ -14,11 +15,7 @@ const searchItems = async (req, res) => {
     }
 
     const data = await response.json();
-    const results = data.products.map((product) => ({
-      title: product.title,
-      description: product.description,
-      final_price: (product.price * (1 - product.discountPercentage / 100)).toFixed(2),
-    }));
+    const results = data.products.map((product) => transformData(product));
 
     res.set('Content-Type', 'application/json');
     res.status(200).send(results);

@@ -9,13 +9,13 @@ const outputSchema = Joi.array().items(
   Joi.object({
     title: Joi.string().required(),
     description: Joi.string().required(),
-    final_price: Joi.number().required()
-  })
+    final_price: Joi.number().required(),
+  }),
 );
 
 const errorSchema = Joi.object({
   code: Joi.number().required(),
-  message: Joi.string().required()
+  message: Joi.string().required(),
 });
 
 module.exports = { inputSchema, outputSchema, errorSchema };
