@@ -1,8 +1,9 @@
 # Mikroserviss produkta meklēšanai
-Latvenergo NODE vakances praktiskais uzdevums
+Latvenergo NODE vakances praktiskais uzdevums - izpildīti visi papilduzdevumi.
 
 Lai startētu projektu:
 - `npm install` - lai instalētu nepieciešamās pakotnes
 - `npm run start` - lai palaistu Express.js serveri
 
-Serveris būs pieejams - http://localhost:5000
+Front-end būs pieejams - http://localhost:5001,
+API endpoint - http://localhost:5001/api/search
